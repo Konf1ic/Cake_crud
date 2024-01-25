@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List cakes</title>
+</head>
+<body>
+<h1>Create cake form</h1>
+<button><a th:href="@{/cakes}">Back to list</a></button>
+
+<div>
+    <form action="/cakes/update" method="post" th:object="${cake}">
+        <input type="hidden" th:field="*{id}">
+        <input type="text" th:field="*{details}" placeholder="Details...">
+        <br>
+        <select th:field="*{type}">
+            <option value="" selected>Choose type</option>
+            <option value="banh chay">Vegetarian</option>
+            <option value="banh man">Salted</option>
+        </select>
+        <br>
+        <input type="text" th:field="*{price}" placeholder="Price...">
+        <br>
+        <select th:field="*{status}">
+            <option value="true">Stocking</option>
+            <option value="false">Out of stock</option>
+        </select>
+        <br>
+        <button type="submit">Update</button>
+    </form>
+</div>
+</body>
+</html>
